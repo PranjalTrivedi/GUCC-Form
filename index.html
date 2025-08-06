@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUCC Membership Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="gucc-logo.png" alt="GUCC Logo">
+        </div>
+
+        <!-- Header -->
+        <h2>GUCC Community Membership Form</h2>
+        <p class="subtitle">Join our vibrant Gujarati community in Canada</p>
+        
+        <form method="post" action="" name="contact-form" aria-label="GUCC Membership Form" onsubmit="return validateForm(event)">
+            
+            <!-- Personal Information -->
+            <section class="form-section">
+                <h3>1. Personal Information</h3>
+                
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="first-name">First Name *</label>
+                        <input type="text" id="first-name" name="First Name" required aria-required="true" pattern="[A-Za-z\s-]{1,50}" title="First Name should contain only letters, spaces, or hyphens (max 50 characters)" autocomplete="given-name">
+                    </div>
+                    <div class="form-control">
+                        <label for="last-name">Last Name *</label>
+                        <input type="text" id="last-name" name="Last Name" required aria-required="true" pattern="[A-Za-z\s-]{1,50}" title="Last Name should contain only letters, spaces, or hyphens (max 50 characters)" autocomplete="family-name">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="gender">Gender *</label>
+                        <select id="gender" name="Gender" required aria-required="true" autocomplete="sex">
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="dob">Date of Birth *</label>
+                        <input type="date" id="dob" name="Date of Birth" required aria-required="true" max="2006-08-05" title="Date of Birth must be before August 05, 2006 (19 years or older)" autocomplete="bday">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Details -->
+            <section class="form-section">
+                <h3>2. Contact Details</h3>
+
+                <div class="form-row">
+                    <div class="form-control half-width">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="Email" required aria-required="true" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address (e.g., example@domain.com)" autocomplete="email">
+                    </div>
+                    <div class="form-control country-code">
+                        <label for="country-code">Code *</label>
+                        <select id="country-code" name="Country Code" required aria-required="true" autocomplete="tel-country-code">
+                            <option value="">Select Code</option>
+                        </select>
+                    </div>
+                    <div class="form-control phone-width">
+                        <label for="phone-number">Phone Number *</label>
+                        <input type="text" id="phone-number" name="Phone Number" required aria-required="true" pattern="\d{10}" title="Phone Number must be exactly 10 digits" autocomplete="tel-national">
+                    </div>
+                </div>
+
+                <div class="form-row contact-row">
+                    <div class="form-control">
+                        <label for="contact-country">Country *</label>
+                        <select id="contact-country" name="Country" required aria-required="true" autocomplete="country">
+                            <option value="">Select Country</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="province">Province/State *</label>
+                        <select id="province" name="Province" required aria-required="true" autocomplete="address-level1">
+                            <option value="">Select Province/State</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="city">City *</label>
+                        <select id="city" name="City" required aria-required="true" autocomplete="address-level2">
+                            <option value="">Select City</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Origin Information -->
+            <section class="form-section">
+                <h3>3. Origin Information</h3>
+
+                <div class="form-row origin-row">
+                    <div class="form-control">
+                        <label for="country-origin">Country of Origin *</label>
+                        <select id="country-origin" name="Country of Origin" required aria-required="true" autocomplete="country">
+                            <option value="">Select Country</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="state-origin">State/Province *</label>
+                        <select id="state-origin" name="State of Origin" required aria-required="true" autocomplete="address-level1">
+                            <option value="">Select State/Province</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="city-origin">City *</label>
+                        <select id="city-origin" name="City of Origin" required aria-required="true" autocomplete="address-level2">
+                            <option value="">Select City</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Occupation -->
+            <section class="form-section">
+                <h3>4. Occupation</h3>
+                <div class="form-control">
+                    <label for="member-type">Occupation *</label>
+                    <select id="member-type" name="Occupation" required aria-required="true" autocomplete="organization-title">
+                        <option value="">Select Occupation</option>
+                        <option value="Student">Student</option>
+                        <option value="Professional/Job">Professional</option>
+                        <option value="Business Owner">Business Owner</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Consent -->
+            <section class="form-section consent">
+                <label>
+                    <input type="checkbox" id="consent" name="Consent" required aria-required="true" autocomplete="Yes">
+                    I agree to receive updates and communication from GUCC regarding events, promotions, and community initiatives. I understand that my data may also be used for other purposes related to community engagement and program development.
+                </label>
+            </section>
+
+            <!-- Submission Message -->
+            <div id="submission-message" class="submission-message" style="display: none; text-align: center; margin: 20px 0; padding: 10px; border-radius: 5px;"></div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submit" class="ripple">Join Now</button>
+        </form>
+    </div>
+
+    <script src="provincecity.js"></script>
+    <script src="data.js"></script>
+    <script src="security.js"></script>
+</body>
+</html>
