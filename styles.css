@@ -1,0 +1,246 @@
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: linear-gradient(135deg, #e8f0fe 0%, #d2e3fc 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 32px;
+}
+
+/* Container */
+.container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 960px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo & Header */
+.logo {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.logo img {
+    max-width: 96px;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo img:hover {
+    transform: scale(1.08);
+}
+
+h2 {
+    text-align: center;
+    font-size: 32px;
+    color: #202124;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #5f6368;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+/* Section Titles */
+.form-section h3 {
+    font-size: 20px;
+    color: #202124;
+    margin-bottom: 24px;
+    font-weight: 500;
+    position: relative;
+}
+
+.form-section h3::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(to right, #4285f4, #34a853);
+    margin-top: 8px;
+    border-radius: 1.5px;
+}
+
+/* Form Rows & Controls */
+.form-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.form-control {
+    flex: 1;
+    position: relative;
+    min-width: 0;
+}
+
+.form-control label {
+    font-size: 14px;
+    color: #5f6368;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control input,
+.form-control select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    background: #ffffff;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+
+.form-control input:focus,
+.form-control select:focus {
+    border-color: #4285f4;
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15);
+    outline: none;
+}
+
+/* Specific Layout Adjustments */
+.half-width {
+    flex: 0 0 calc(50% - 12px);
+    max-width: calc(50% - 12px);
+}
+
+.country-code {
+    flex: 0 0 15%;
+    min-width: 80px;
+}
+
+.phone-width {
+    flex: 2;
+    max-width: 60%;
+}
+
+.contact-row,
+.origin-row {
+    display: flex;
+    gap: 24px;
+}
+
+.contact-row .form-control,
+.origin-row .form-control {
+    flex: 1;
+    max-width: 33.33%;
+}
+
+/* Consent Checkbox */
+.consent {
+    font-size: 14px;
+    color: #5f6368;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.consent input {
+    accent-color: #4285f4;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.consent input:hover {
+    transform: scale(1.1);
+}
+
+/* Submit Button */
+#submit {
+    width: 100%;
+    padding: 14px;
+    background: #4285f4;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#submit:hover {
+    background: #1967d2;
+}
+
+#submit.ripple::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 0.6s linear;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+}
+
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .half-width,
+    .country-code,
+    .phone-width {
+        flex: 1;
+        max-width: 100%;
+    }
+    .container {
+        padding: 24px;
+    }
+    .form-control input,
+    .form-control select {
+        font-size: 14px;
+    }
+    .contact-row,
+    .origin-row {
+        flex-direction: column;
+    }
+    .contact-row .form-control,
+    .origin-row .form-control {
+        max-width: 100%;
+    }
+}
